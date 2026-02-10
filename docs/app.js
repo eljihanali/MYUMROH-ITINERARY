@@ -1,67 +1,107 @@
-.hero {
-  background: #0c243c;
-  color: white;
-  padding: 40px 20px;
-  text-align: center;
-  border-radius: 0 0 20px 20px;
+function navigate(page) {
+  window.location.hash = page;
+  renderPage();
 }
 
-.hero-title {
-  font-size: 26px;
-  font-weight: bold;
-  margin-bottom: 5px;
+function renderPage() {
+  const page = window.location.hash.replace("#", "") || "dashboard";
+
+  if (page === "dashboard") {
+    document.getElementById("app").innerHTML = Dashboard();
+  } 
+  else if (page === "itinerary") {
+    document.getElementById("app").innerHTML = ItineraryList();
+  }
+  else if (page === "documents") {
+    document.getElementById("app").innerHTML = Documents();
+  }
+  else if (page === "map") {
+    document.getElementById("app").innerHTML = MapPage();
+  }
 }
 
-.hero-subtitle {
-  font-size: 14px;
-  opacity: 0.8;
+function Dashboard() {
+  return `
+    <section class="hero">
+      <h1 class="hero-title">Itinerary Umroh</h1>
+      <p class="hero-subtitle">Panduan lengkap perjalanan Anda hari ini</p>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Itinerary Hari Ini</h2>
+
+      <div class="card itinerary-card">
+        <div class="item">
+          <span class="time">06:00</span>
+          <span class="activity">Sarapan & Briefing</span>
+        </div>
+
+        <div class="item">
+          <span class="time">08:00</span>
+          <span class="activity">Berangkat ke Masjidil Haram</span>
+        </div>
+
+        <div class="item">
+          <span class="time">09:00</span>
+          <span class="activity">Tawaf</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Menu Cepat</h2>
+      <div class="menu-grid">
+        <div class="menu-item" onclick="navigate('itinerary')">
+          📅<br>Itinerary
+        </div>
+        <div class="menu-item" onclick="navigate('documents')">
+          📄<br>Dokumen
+        </div>
+        <div class="menu-item" onclick="navigate('map')">
+          📍<br>Map
+        </div>
+      </div>
+    </section>
+  `;
 }
 
-.section {
-  margin: 20px;
+function ItineraryList() {
+  return `
+    <h2>Itinerary Harian</h2>
+    <div class="card">
+      <strong>06:00</strong> — Sarapan & Briefing
+    </div>
+    <div class="card">
+      <strong>08:00</strong> — Berangkat ke Masjidil Haram
+    </div>
+    <div class="card">
+      <strong>09:00</strong> — Tawaf
+    </div>
+  `;
 }
 
-.section-title {
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 12px;
+function Documents() {
+  return `
+    <h2>Dokumen</h2>
+    <div class="card">Paspor</div>
+    <div class="card">Visa</div>
+    <div class="card">Tiket Pesawat</div>
+  `;
 }
 
-.itinerary-card {
-  padding: 15px;
+function MapPage() {
+  return `
+    <h2>Lokasi Penting</h2>
+    <div class="card">
+      <a href="https://maps.google.com?q=Masjidil+Haram" target="_blank">
+        📍 Masjidil Haram
+      </a>
+    </div>
+  `;
 }
 
-.itinerary-card .item {
-  display: flex;
-  gap: 12px;
-  padding: 10px 0;
-  border-bottom: 1px solid #eee;
-}
+window.addEventListener("hashchange", renderPage);
+window.addEventListener("load", renderPage);
 
-.itinerary-card .item:last-child {
-  border-bottom: none;
-}
-
-.time {
-  font-weight: bold;
-  color: #0c243c;
-  width: 60px;
-}
-
-.menu-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-  text-align: center;
-}
-
-.menu-item {
-  background: #ffffff;
-  padding: 15px 0;
-  border-radius: 12px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-  font-size: 14px;
-  cursor: pointer;
-}
 
 
