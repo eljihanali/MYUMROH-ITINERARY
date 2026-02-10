@@ -51,16 +51,21 @@ function Dashboard() {
     <section class="section">
       <h2 class="section-title">Menu Cepat</h2>
       <div class="menu-grid">
-        <div class="menu-item" onclick="navigate('itinerary')">
-          📅<br>Itinerary
-        </div>
-        <div class="menu-item" onclick="navigate('documents')">
-          📄<br>Dokumen
-        </div>
-        <div class="menu-item" onclick="navigate('map')">
-          📍<br>Map
-        </div>
-      </div>
+  <div class="menu-item" onclick="navigate('itinerary')">
+    <span class="icon">📅</span>
+    Itinerary
+  </div>
+
+  <div class="menu-item" onclick="navigate('documents')">
+    <span class="icon">📄</span>
+    Dokumen
+  </div>
+
+  <div class="menu-item" onclick="navigate('map')">
+    <span class="icon">📍</span>
+    Map
+  </div>
+</div>
     </section>
   `;
 }
