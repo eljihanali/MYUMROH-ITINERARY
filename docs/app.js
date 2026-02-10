@@ -1,90 +1,67 @@
-const app = document.getElementById("app");
-
-function navigate(page) {
-  window.location.hash = page;
-  render();
+.hero {
+  background: #0c243c;
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+  border-radius: 0 0 20px 20px;
 }
 
-function Dashboard() {
-  return `
-    <div class="card">
-      <h2>Countdown</h2>
-      <p>Menuju kegiatan berikutnya: <b>Tawaf</b></p>
-      <p><span id="countdown">Loading...</span></p>
-    </div>
-
-    <div class="card">
-      <h3>Menu Cepat</h3>
-      <button onclick="navigate('itinerary')">Lihat Itinerary</button><br/>
-      <button onclick="navigate('documents')">Dokumen</button><br/>
-      <button onclick="navigate('map')">Lihat Map</button>
-    </div>
-  `;
+.hero-title {
+  font-size: 26px;
+  font-weight: bold;
+  margin-bottom: 5px;
 }
 
-function ItineraryList() {
-  return `
-    <h2>Itinerary Harian</h2>
-    <div class="card">
-      <b>06:00</b> — Sarapan & briefing  
-    </div>
-    <div class="card">
-      <b>08:00</b> — Berangkat ke Masjidil Haram  
-    </div>
-    <div class="card">
-      <b>09:00</b> — Tawaf  
-      <button onclick="navigate('detail')">Detail</button>
-    </div>
-  `;
+.hero-subtitle {
+  font-size: 14px;
+  opacity: 0.8;
 }
 
-function ItineraryDetail() {
-  return `
-    <h2>Detail Kegiatan</h2>
-    <div class="card">
-      <p><b>Kegiatan:</b> Tawaf</p>
-      <p><b>Lokasi:</b> Masjidil Haram</p>
-      <p><b>Catatan:</b> Pastikan membawa sandal & tas kecil.</p>
-      <button onclick="window.open('https://maps.google.com?q=Masjidil+Haram')">Buka di Maps</button>
-    </div>
-  `;
+.section {
+  margin: 20px;
 }
 
-function Documents() {
-  return `
-    <h2>Dokumen</h2>
-    <div class="card">Paspor (upload ditempat Anda)</div>
-    <div class="card">Visa</div>
-    <div class="card">Tiket</div>
-  `;
+.section-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 12px;
 }
 
-function MapPage() {
-  return `
-    <h2>Map Lokasi</h2>
-    <div class="card">
-      <button onclick="window.open('https://maps.google.com?q=Masjidil+Haram')">
-        Masjidil Haram
-      </button>
-    </div>
-
-    <div class="card">
-      <button onclick="window.open('https://maps.google.com?q=Masjid+Nabawi')">
-        Masjid Nabawi
-      </button>
-    </div>
-  `;
+.itinerary-card {
+  padding: 15px;
 }
 
-function render() {
-  const page = window.location.hash.replace("#", "") || "dashboard";
-  if (page === "dashboard") app.innerHTML = Dashboard();
-  if (page === "itinerary") app.innerHTML = ItineraryList();
-  if (page === "detail") app.innerHTML = ItineraryDetail();
-  if (page === "documents") app.innerHTML = Documents();
-  if (page === "map") app.innerHTML = MapPage();
+.itinerary-card .item {
+  display: flex;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
 }
 
-window.addEventListener("hashchange", render);
-render();
+.itinerary-card .item:last-child {
+  border-bottom: none;
+}
+
+.time {
+  font-weight: bold;
+  color: #0c243c;
+  width: 60px;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  text-align: center;
+}
+
+.menu-item {
+  background: #ffffff;
+  padding: 15px 0;
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  font-size: 14px;
+  cursor: pointer;
+}
+
 
