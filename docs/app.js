@@ -129,9 +129,3 @@ function MapPage() {
 }
 
 window.onload = render;
-
-
-
-
-
-
