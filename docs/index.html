@@ -94,6 +94,29 @@
 
     /* ITINERARY CARD */
     .itinerary-card {
+      .itinerary-card {
+  background: white;
+  border-radius: 16px;
+  padding: 5px 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.itinerary-card .item {
+  padding: 14px 0;
+  display: flex;
+  align-items: center;
+}
+
+.time {
+  font-weight: 700;
+  width: 60px;
+  color: #0c243c;
+}
+
+.activity {
+  font-size: 14px;
+}
+
       padding: 15px;
     }
 
@@ -116,6 +139,27 @@
 
     /* MENU GRID */
     .menu-grid {
+      .menu-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.menu-item {
+  background: #ffffff;
+  padding: 25px 10px;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  font-size: 14px;
+  text-align: center;
+}
+
+.menu-item span.icon {
+  font-size: 24px;
+  display: block;
+  margin-bottom: 8px;
+}
+
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 12px;
